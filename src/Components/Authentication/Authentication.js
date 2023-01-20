@@ -6,7 +6,9 @@ const Authentication = Component => props =>{
     
     if (session){
         return <Component {...props}/>
-    }else { return <LoginPage/>}
+    }else { 
+        return <LoginPage/>
+    }
 }
 
 export default Authentication;

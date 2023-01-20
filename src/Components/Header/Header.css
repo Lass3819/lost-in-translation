@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+.login-header{
+    padding-left:0px;
+    color: white;
+    font-family: 'Love Ya Like A Sister', cursive;
+    
+
+}
+.title{
+    padding-left: 100px;
+}
+
+
+hr.solid {
+    border-top: 1px solid #E7B355;
+  }

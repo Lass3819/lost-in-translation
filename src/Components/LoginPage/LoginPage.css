@@ -6,36 +6,3 @@
     background-color: #FFC75F;
 }
 
-.login-title, .login-header{
-    color:white;
-    font-family: 'Love Ya Like A Sister', cursive;
-}
-
-.input{
-    padding: 20px;
-    text-align: center;
-    max-width: 400px;
-}
-.centered{
-    align-self: center;
-}
-.input-form{
-    background-color: #EFEFEF;
-    padding: 20px;
-    border-radius: 15px;
-}
-.input-field{
-    background-color: #EFEFEF;
-    border: none;
-    min-width: 300px;
-    min-height: 35px;
-}
-.input-button{
-    color: #845EC2;
-    height:50px;
-    width: 50px;
-    border-radius:50%;
-}
-
-
-/* font-family: 'Sanchez', serif */
