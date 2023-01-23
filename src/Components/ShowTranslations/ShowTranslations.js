@@ -7,8 +7,16 @@ import TranslateLetter from "../TranslateLetter/TranslateLetter";
 
 const ShowTranslations = (props)=>{
 
+    const stringArr = props.inputString.split(" ")
+    const toDisplay = [];
+    for (let word of stringArr){
+        for (let letter of word){
+            toDisplay.push(<TranslateLetter letter={letter}/>)
 
-    const test = [<TranslateLetter letter="a"/>,<TranslateLetter letter="b"/>];
+
+        }
+    }
+    
 
 
 
@@ -17,7 +25,7 @@ const ShowTranslations = (props)=>{
         <div className="bigger-container">
             
             <div className="container">
-                {test}
+                {toDisplay}
                 
                             
             </div>

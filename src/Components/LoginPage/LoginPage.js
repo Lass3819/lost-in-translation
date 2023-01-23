@@ -2,7 +2,7 @@ import logo from '../../resources/Logo.png';
 /* import {useEffect, useState} from "react"
  */import "./LoginPage.css"
 import Header from "../Header/Header.js"
-import InputBox from '../InputBox/InputBox';
+import InputBox from '../LoginInputBox/LoginInputBox';
 
 
 const LoginPage = props =>{

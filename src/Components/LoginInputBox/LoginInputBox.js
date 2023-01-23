@@ -1,13 +1,13 @@
-import "./InputBox.css"
+import "./LoginInputBox.css"
 import {useDispatch} from "react-redux";
-import { setName } from "../../redux/counterSlice";
+import { setName } from "../../redux/userNameSlice";
 import { useState } from "react";
+import { setInput } from "../../redux/translationInputSlice";
 
-const InputBox = (props)=>{
+const LoginInputBox = (props)=>{
     const [userName, setUserName] = useState("")
- 
+    
     const dispatch = useDispatch();
-     
     
 
 
@@ -17,6 +17,7 @@ const InputBox = (props)=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(setName(userName));
+        dispatch(setInput(userName));
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
 
 
@@ -25,11 +26,11 @@ const InputBox = (props)=>{
         <div className="input">
             <form className="input-form" onSubmit={handleSubmit}>
                 <input className="input-field" placeholder={props.defaultValue} value={userName} type="text" onChange={handleOnChange}/>
-                <button className="input-button" type="submit">submit</button>
+                <button className="input-button" type="submit">Submit</button>
             </form>
                     
                 
         </div>
     );
 }
-export default InputBox;
+export default LoginInputBox;

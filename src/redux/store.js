@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import nameReducer from "./counterSlice"
+import nameReducer from "./userNameSlice"
+import inputReducer from "./translationInputSlice"
 
 export default configureStore({
     reducer: {
-        userName: nameReducer
+        userName: nameReducer,
+        input: inputReducer,
 
-    },
+    }
 })
