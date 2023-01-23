@@ -1,17 +1,14 @@
-.login-header{
-  padding-left:100px;
-}
-
-hr.solid {
-  border-top: 1px solid brown;
+.App{
+  padding: 20px;
+  background-color: #FFC75F;
 }
 
 .login-title{
   color:white;
-  font-family: 'Love Ya Like A Sister', cursive;
-  
-  
+  font-family: 'Love Ya Like A Sister', cursive;  
 }
+
+
 .images-and-words{
   display:flex;
   justify-content: center;
@@ -27,7 +24,7 @@ hr.solid {
   padding-right: 30px;
 }
 
-
+/* 
 .input{
   background-color: white;
   padding: 20px;
@@ -76,4 +73,4 @@ hr.solid {
 .input-button:hover{
   background-color: #4CAF50;
 
-}
+} */

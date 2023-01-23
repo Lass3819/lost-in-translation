@@ -1,24 +1,12 @@
 import logo from '../../resources/Logo.png';
-import {useEffect, useState} from "react"
-import "./LoginPage.css"
+/* import {useEffect, useState} from "react"
+ */import "./LoginPage.css"
 import Header from "../Header/Header.js"
+import InputBox from '../InputBox/InputBox';
 
 
 const LoginPage = props =>{
-    const [userName, setUserName] = useState("")
-    useEffect(()=>{
-        localStorage.setItem('userName',JSON.stringify(userName),[userName])
-    })
 
-    const handleOnChange = (e)=>{
-        setUserName(e.target.value)
-    }
-    const handleSubmit = (e)=>{
-        //alert("Welcome "+userName);
-        localStorage.setItem('userName',JSON.stringify(userName),[userName])
-        const test = JSON.parse(localStorage.getItem("userName"));
-        console.log(test);
-    }
     
     return (
         <div className="entire-page">
@@ -35,15 +23,7 @@ const LoginPage = props =>{
                     
             </div>
             
-            <div className="input">
-                <form className="input-form" onSubmit={handleSubmit}>
-                    <input className="input-field" placeholder="What's your name?" value={userName} type="text" onChange={handleOnChange}/>
-                    <button className="input-button" type="submit">submit</button>
-                </form>
-                    
-                
-            </div>
-
+            <InputBox defaultValue="What's your name?"/>
         </div>
     )
 }
