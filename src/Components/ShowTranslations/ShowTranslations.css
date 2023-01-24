@@ -5,10 +5,12 @@
 
 .container{
     width: 700px;
-    height: 400px;
+    min-height: 200px;
     background-color: white;
     border-radius: 20px;
     margin: auto;
-    display: auto;
+    display: block;
+    overflow: auto;
+    
 
 }

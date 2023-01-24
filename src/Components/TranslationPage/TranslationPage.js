@@ -13,7 +13,7 @@ const TranslationPage = (props)=>{
 
         <div>
             <Header/>
-            <TranslateInputBox defaultValue="Hello"/>
+            <TranslateInputBox defaultValue=""/>
             <ShowTranslations inputString={inputData}/>
         </div>
             

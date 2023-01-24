@@ -5,8 +5,9 @@ import Header from "../Header/Header.js"
 import InputBox from '../LoginInputBox/LoginInputBox';
 
 
-const LoginPage = props =>{
 
+const LoginPage = props =>{
+    
     
     return (
         <div className="entire-page">

@@ -1,12 +1,15 @@
 import "./Header.css"
 
+import ProfileHeader from "../ProfileHeader/ProfileHeader";
+
 const Header = ()=>{
 
 
     return(
         <div className="login-header">
             <h2 className="title">Lost in Translation</h2>
-            <hr class="solid"/>
+            <ProfileHeader/>
+            <hr className="solid"/>
         </div>
     );
 }
