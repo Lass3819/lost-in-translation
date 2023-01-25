@@ -46,17 +46,29 @@ export const addUserAsync = createAsyncThunk(
 export const userNameSlice = createSlice({
     name: "userName",
     initialState: {
-        value: JSON.parse(localStorage.getItem("userName")),
+        name: JSON.parse(localStorage.getItem("userName")),
+        users: [],
+        loading: true,
+        error: null
     },
     reducers: {
         setName: (state, action) => {
-            state.value = action.payload;
+            state.name = action.payload;
         }
     },
     extraReducers: {
         [addUserAsync.fulfilled]: (state,action) => {
-            state.users = action.payload.user
+            state.users.push(action.payload.user)
+            state.loading = false;
+        },
+        [addUserAsync.pending]: (state, action) =>{
+            state.loading = true;
+        },
+        [addUserAsync.rejected]: (state,action)=>{
+            state.error = action.error
+            state.loadingTranslations = false
         }
+
     },
 })
 export const { setName } = userNameSlice.actions;

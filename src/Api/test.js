@@ -2,7 +2,7 @@ const apiURL = 'https://noroff-api-production-f6a1.up.railway.app'
 const apiKey = 'ep1AJJI8eRB3hRT6VF5ETTXvk9WYddiSDPi0tyMqweudP0TH1e6liYkN2B9CjMLI'
 
 const userId = 2 // Update user with id 1
-for (let i = 1; i<20; i++){
+for (let i = 1; i<50; i++){
   deleteUserWithId(i);
 }
 

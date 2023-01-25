@@ -1,16 +1,19 @@
 import "./LoginInputBox.css"
-import { useDispatch } from "react-redux";
-import { setName, addUserAsync } from "../../../redux/userNameSlice"
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setName, addUserAsync, getUserAsync } from "../../../redux/userNameSlice"
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 const LoginInputBox = (props)=>{
     const [userName, setUserName] = useState("")
-    const navigate = useNavigate();   
+    const {users, loading, error} = useSelector((state)=> state.userName.users)
+    //const navigate = useNavigate();   
     const dispatch = useDispatch();
     
-
+    useEffect(()=>{
+        dispatch(getUserAsync());
+    },[dispatch])
 
 
 
@@ -21,9 +24,18 @@ const LoginInputBox = (props)=>{
         e.preventDefault();
         dispatch(setName(userName));
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
-        if(userName){
+        if (!loading){
+            
+            for(let user in users){
+                console.log("hej")
+                if(user.name===userName){
+                    console.log("user already exists")
+                    return;
+                }
+            }
             dispatch(addUserAsync({name: userName}))
         }
+        
 
 
 
