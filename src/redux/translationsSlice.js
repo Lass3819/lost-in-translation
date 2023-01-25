@@ -1,14 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { apiURL } from "../constants";
 export const getTranslationsAsync = createAsyncThunk(
-    "translations/getTranslationsAsync",
-    async ()=>{
-        const resp = await fetch('https://noroff-api-production-f6a1.up.railway.app/translations')
-        if (resp.ok){
-            const translations = await resp.json();
-            return { translations};
-
+    "translation/getTranslationsAsync",
+    async () => {
+        const resp = await fetch(apiURL)
+        
+        if(!resp.ok){
+            return new Promise.reject();
         }
+        
+        
+        const translations = await resp.json();
+        return { translations };
+
+        
         
     }
 
@@ -16,19 +21,30 @@ export const getTranslationsAsync = createAsyncThunk(
 )
 
 
-export const translationSlice = createSlice({
-    name: "translations",
+const translationSlice = createSlice({
+    name: "translation",
     initialState: {
-        value: [],
+        translations: [],
+        loadingTranslations: true,
+        error: null
     },
     reducers: {
     },
     extraReducers: {
+        [getTranslationsAsync.pending]: (state,action)=>{
+            state.loadingTranslations = true
+        },
         [getTranslationsAsync.fulfilled]: (state,action)=>{
-            return action.payload.translations
+            state.translations = action.payload.translations
+            state.loadingTranslations = false
+            
+        },
+        [getTranslationsAsync.rejected]: (state,action)=>{
+            state.error = action.error
+            state.loadingTranslations = false
         }
     }
 })
-//export const { setInput } = translationSlice.actions;
+//export const { } = translationSlice.actions;
 
 export default translationSlice.reducer;

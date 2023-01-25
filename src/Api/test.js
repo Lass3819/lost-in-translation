@@ -1,7 +1,13 @@
 const apiURL = 'https://noroff-api-production-f6a1.up.railway.app'
 const apiKey = 'ep1AJJI8eRB3hRT6VF5ETTXvk9WYddiSDPi0tyMqweudP0TH1e6liYkN2B9CjMLI'
 
-const userId = 4 // Update user with id 1
+const userId = 2 // Update user with id 1
+for (let i = 1; i<20; i++){
+  deleteUserWithId(i);
+}
+
+
+
 
 function deleteUserWithId(userId){
     fetch(`${apiURL}/translations/${userId}`, {
@@ -27,14 +33,17 @@ function deleteUserWithId(userId){
   .catch(error => {
   })
 }
-
+/*
 function fetchAllUsers(){
+  const apiURL = 'https://noroff-api-production-f6a1.up.railway.app'
   fetch(`${apiURL}/translations`)
     .then(response => response.json())
     .then(results => {
-        console.log(results[0]);}
-    ).catch(error => {
-    }) 
+        console.log(results);
+        return results;}
+    ).catch(error => { return error
+    })
+    
 }
 
 
@@ -91,5 +100,6 @@ function addNewTranslations(userId,newTranslations){
 }
 
 
-addNewTranslations(1,["hej","hej","asdfasdf"])
+//addNewTranslations(1,["hej","hej","asdfasdf"])
 
+postWithUserNameAndTranslations("Hej",["asdf","asdf","asdfasdfasdf"]) */

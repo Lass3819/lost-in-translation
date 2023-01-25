@@ -1,7 +1,7 @@
-import logo from '../../resources/Logo.png';
+import logo from '../../../resources/Logo.png';
 /* import {useEffect, useState} from "react"
  */import "./LoginPage.css"
-import Header from "../Header/Header.js"
+import Header from "../../Header/Header.js"
 import InputBox from '../LoginInputBox/LoginInputBox';
 
 
@@ -14,7 +14,7 @@ const LoginPage = props =>{
             <Header/>
             <div className="images-and-words">
                 <div className="images">
-                    {/* <img className="image" src={splash} alt=""/> */}
+                   
                     <img className="image" src={logo} alt=""/>
                 </div>
                 <div className="login-title">

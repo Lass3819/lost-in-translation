@@ -1,7 +1,7 @@
 import "./TranslateInputBox.css"
 import {useDispatch} from "react-redux";
 import { useState } from "react";
-import { setInput } from "../../redux/translationInputSlice";
+import { setInput } from "../../../redux/translationInputSlice";
 
 const TranslateInputBox = (props)=>{
     const [localInput, setLocalInput] = useState("")
@@ -16,6 +16,7 @@ const TranslateInputBox = (props)=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(setInput(localInput));
+        
 
 
     }

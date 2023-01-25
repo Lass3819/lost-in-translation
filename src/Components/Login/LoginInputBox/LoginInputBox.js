@@ -1,14 +1,17 @@
 import "./LoginInputBox.css"
 import { useDispatch } from "react-redux";
-import { setName } from "../../redux/userNameSlice";
+import { setName, addUserAsync } from "../../../redux/userNameSlice"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const LoginInputBox = (props)=>{
     const [userName, setUserName] = useState("")
-    const navigate = useNavigate();    
+    const navigate = useNavigate();   
     const dispatch = useDispatch();
     
+
+
 
 
     const handleOnChange = (e)=>{
@@ -19,9 +22,9 @@ const LoginInputBox = (props)=>{
         dispatch(setName(userName));
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
         if(userName){
-            navigate("/translate")
-
+            dispatch(addUserAsync({name: userName}))
         }
+
 
 
     }
@@ -34,6 +37,7 @@ const LoginInputBox = (props)=>{
                     
                 
         </div>
+        
     );
 }
 export default LoginInputBox;

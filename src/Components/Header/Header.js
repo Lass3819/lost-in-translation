@@ -1,6 +1,7 @@
 import "./Header.css"
 
-import ProfileHeader from "../ProfileHeader/ProfileHeader";
+import ProfileHeader from "../Profile/ProfileHeader/ProfileHeader";
+import LogoutButton from "../LogoutButton/LogoutButton";
 
 const Header = ()=>{
 
@@ -9,6 +10,7 @@ const Header = ()=>{
         <div className="login-header">
             <h2 className="title">Lost in Translation</h2>
             <ProfileHeader/>
+            <LogoutButton/>
             <hr className="solid"/>
         </div>
     );

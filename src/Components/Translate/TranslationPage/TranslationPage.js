@@ -1,5 +1,5 @@
-import Header from "../../Components/Header/Header.js"
-import ShowTranslations from "../../Components/ShowTranslations/ShowTranslations"
+import Header from "../../Header/Header.js"
+import ShowTranslations from "../ShowTranslations/ShowTranslations"
 import { useSelector } from "react-redux";
 import TranslateInputBox from "../TranslateInputBox/TranslateInputBox.js";
 
