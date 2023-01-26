@@ -1,18 +1,19 @@
 import "./LoginInputBox.css"
 import { useDispatch, useSelector } from "react-redux";
-import { setName, addUserAsync, getUserAsync } from "../../../redux/userNameSlice"
+import { setName, setIndex } from "../../../redux/userNameSlice"
 import { useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
+import { getUsersAsync, addUserAsync } from "../../../redux/usersSlice";
+
 
 
 const LoginInputBox = (props)=>{
-    const [userName, setUserName] = useState("")
-    const {users, loading, error} = useSelector((state)=> state.userName.users)
-      
     const dispatch = useDispatch();
+    const [userName, setUserName] = useState("")
+    const {users, loading} = useSelector((state)=> state.users)
+      
     
     useEffect(()=>{
-        dispatch(getUserAsync());
+        dispatch(getUsersAsync());
     },[dispatch])
 
 
@@ -21,16 +22,22 @@ const LoginInputBox = (props)=>{
         setUserName(e.target.value)
     }
     const handleSubmit = (e)=>{
+        
         e.preventDefault();
+        if(!userName){
+            return
+        }
         dispatch(setName(userName));
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
         
         if (!loading){
-            
-            for(let user in users){
-                console.log("hej")
-                if(user.name===userName){
+            //foolproof way of iterating over the users array
+            //even though we would get index directly by iterating over indices.               
+            for(let user of users){                           
+                if(user.username.name === userName){
                     console.log("user already exists")
+                    const i = users.indexOf(user)
+                    dispatch(setIndex(i))
                     return;
                 }
             }
@@ -46,6 +53,7 @@ const LoginInputBox = (props)=>{
     }
     return (
         <div className="input">
+            {loading ? <p>loading...</p>:""}
             <form className="input-form" onSubmit={handleSubmit}>
                 <input className="input-field" placeholder={props.defaultValue} value={userName} type="text" onChange={handleOnChange}/>
                 <button className="input-button" type="submit">Submit</button>

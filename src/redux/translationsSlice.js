@@ -16,9 +16,9 @@ export const getTranslationsAsync = createAsyncThunk(
         
         
     }
-
-
 )
+
+
 
 
 const translationSlice = createSlice({

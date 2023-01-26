@@ -26,7 +26,7 @@ function ProfileContent(){
             <h2 className="login-header" id="translation-history">Translation history</h2>
             <div className="container">
                 {loadingTranslations ? <p>loading...</p>:""}
-                {error !== null ? <p>error occured</p>: <ProfileHistoryFilter name={user.value} arr={translations} loading={loadingTranslations}/>}
+                {error !== null ? <p>error occurred</p>: <ProfileHistoryFilter name={user.value} arr={translations} loading={loadingTranslations}/>}
                 
             </div>
         </div>

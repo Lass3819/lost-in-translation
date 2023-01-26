@@ -1,11 +1,11 @@
 import "./TranslateInputBox.css"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useState } from "react";
-import { setInput } from "../../../redux/translationInputSlice";
+import { postNewTranslationAsync, setInput } from "../../../redux/translationInputSlice";
 
 const TranslateInputBox = (props)=>{
     const [localInput, setLocalInput] = useState("")
-    
+    const index = useSelector((state) => state.userName.index)
     const dispatch = useDispatch();
     
 
@@ -15,6 +15,9 @@ const TranslateInputBox = (props)=>{
     }
     const handleSubmit = (e)=>{
         e.preventDefault();
+        
+        console.log(localInput,index);
+        dispatch(postNewTranslationAsync({index: index+1,arr: []}))
         dispatch(setInput(localInput));
         
 

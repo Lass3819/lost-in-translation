@@ -17,7 +17,7 @@ const LoginPage = props =>{
         if(user){
             navigate("/profile")
         }
-    },[user])
+    },[user,navigate])
 
 
     return (
