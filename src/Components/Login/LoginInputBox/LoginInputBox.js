@@ -2,13 +2,13 @@ import "./LoginInputBox.css"
 import { useDispatch, useSelector } from "react-redux";
 import { setName, addUserAsync, getUserAsync } from "../../../redux/userNameSlice"
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 
 const LoginInputBox = (props)=>{
     const [userName, setUserName] = useState("")
     const {users, loading, error} = useSelector((state)=> state.userName.users)
-    //const navigate = useNavigate();   
+      
     const dispatch = useDispatch();
     
     useEffect(()=>{
@@ -24,6 +24,7 @@ const LoginInputBox = (props)=>{
         e.preventDefault();
         dispatch(setName(userName));
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
+        
         if (!loading){
             
             for(let user in users){
@@ -35,6 +36,9 @@ const LoginInputBox = (props)=>{
             }
             dispatch(addUserAsync({name: userName}))
         }
+        
+        
+        
         
 
 

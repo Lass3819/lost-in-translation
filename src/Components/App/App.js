@@ -19,8 +19,7 @@ function App() {
         
 
         <Routes>
-          <Route path="/" element={<TranslationPage/>}/>
-          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/" element={<LoginPage/>}/>
           <Route path="/translate" element={<TranslationPage/>}/>
           <Route path="/profile" element={<ProfileContent/>}/>
          

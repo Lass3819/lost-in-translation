@@ -1,14 +1,15 @@
-import LoginPage from "../LoginPage/LoginPage.js";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-const Authentication = Component => props =>{
-    let session = JSON.parse(localStorage.getItem("userName"));
+const authentication = Component => props =>{
+    let user = useSelector((state) => state.userName.name);
      
     
-    if (session){
+    if (user){
         return <Component {...props}/>
     }else { 
-        return <LoginPage/>
+        return <Navigate to="/"/>
     }
 }
 
-export default Authentication;
+export default authentication;

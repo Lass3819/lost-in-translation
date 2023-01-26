@@ -3,12 +3,23 @@ import logo from '../../../resources/Logo.png';
  */import "./LoginPage.css"
 import Header from "../../Header/Header.js"
 import InputBox from '../LoginInputBox/LoginInputBox';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const LoginPage = props =>{
+    let user = useSelector((state)=>state.userName.name)
+    const navigate = useNavigate();
     
-    
+    useEffect(()=>{
+        if(user){
+            navigate("/profile")
+        }
+    },[user])
+
+
     return (
         <div className="entire-page">
             <Header/>

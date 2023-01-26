@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import "./ProfileHeader.css";
 
 const ProfileHeader = ()=>{
-    const user = useSelector((state)=>state.userName.value);
+    const user = useSelector((state)=>state.userName.name);
 
 
     return (
