@@ -25,7 +25,7 @@ function ProfileContent(){
             <h2 className="login-header" id="translation-history">Translation history</h2>
             <h3 className="login-header" id="translation-history" onClick={handleClearHistory}>Click here to clear History</h3>
             <div className="container">
-            <ProfileHistoryFilter arr={trans}/>
+            
 
             
             </div>

@@ -1,2 +1,4 @@
-export const apiURL = process.env.apiURL
-export const apiKey = process.env.apiKey
+export const apiURL = process.env.REACT_APP_API_URL
+export const apiKey = process.env.REACT_APP_API_KEY
+
+
