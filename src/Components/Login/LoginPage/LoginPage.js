@@ -8,7 +8,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-
+//Entire login page, we use header and inputbox for the crucial logic.
+//we have useEffect so that whenever the user logs in they will get redirected to the profile page.
 const LoginPage = props =>{
     let user = useSelector((state)=>state.userName.name)
     const navigate = useNavigate();

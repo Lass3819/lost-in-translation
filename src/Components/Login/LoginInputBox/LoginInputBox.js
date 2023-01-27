@@ -6,7 +6,8 @@ import { getUsersAsync, addUserAsync } from "../../../redux/usersSlice";
 import { setTranslations } from "../../../redux/translationSlice";
 
 
-
+//component for login text box and button. Once the user presses submit, the handleSubmit function will check if there are currently
+//any users in the api with that same name. if there is, it will loads the translations from server and set so that future translations will be put in the same place. 
 const LoginInputBox = (props)=>{
     const dispatch = useDispatch();
     const [userName, setUserName] = useState("")
@@ -32,7 +33,7 @@ const LoginInputBox = (props)=>{
         localStorage.setItem('userName',JSON.stringify(userName),[userName])
         
         if (!loading){
-            //foolproof way of iterating over the users array
+            //foolproof way of iterating over the users  incase there could be a missing entry in the api.
             //even though we would get index directly by iterating over indices.               
             
             for(let user of users){
@@ -41,7 +42,6 @@ const LoginInputBox = (props)=>{
                 if(user.username.name === userName){
                     console.log(user.translations)
                     dispatch(setTranslations(user.translations))
-                    console.log("user already exists")
                     const i = users.indexOf(user)
                     localStorage.setItem('index',JSON.stringify(i),[i])
                     localStorage.setItem('translations',JSON.stringify(user.translations),[user.translations])
@@ -49,6 +49,7 @@ const LoginInputBox = (props)=>{
                     return;
                 }
             }
+            //incase there are no users in api with that name it makes a new one in api.
             dispatch(setIndex(users.length))
             localStorage.setItem('index',JSON.stringify(users.length),[users.length])
             dispatch(addUserAsync({name: userName}))

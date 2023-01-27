@@ -2,7 +2,7 @@ import "./Header.css"
 
 import ProfileHeader from "../Profile/ProfileHeader/ProfileHeader";
 import LogoutButton from "../LogoutButton/LogoutButton";
-
+//this component displays the header for all pages
 const Header = ()=>{
 
 

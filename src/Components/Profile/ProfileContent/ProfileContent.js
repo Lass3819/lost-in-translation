@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authentication from "../../authentication/authentication"
 import Header from "../../Header/Header";
@@ -7,7 +6,7 @@ import ProfileHistoryFilter from "../ProfileHistoryFilter/ProfileHistoryFilter";
 import { NavLink } from "react-router-dom";
 import { setTranslations } from "../../../redux/translationSlice";
 
-
+//profile page
 function ProfileContent(){
     const dispatch = useDispatch();
     const trans = useSelector((state) => state.translation.translations)

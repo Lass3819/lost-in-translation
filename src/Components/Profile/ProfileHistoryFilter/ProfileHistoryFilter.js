@@ -1,5 +1,6 @@
-function ProfileHistoryFilter(props){   
-
+function ProfileHistoryFilter(props){
+    let truncatedArr = props.arr.slice(Math.max(props.arr.length - 10, 0))
+ 
 
     return(
         
@@ -7,7 +8,7 @@ function ProfileHistoryFilter(props){
 
         <div>
             <ul>
-            {props.arr.map((elm,key)=>{return <li key={key}>{elm}</li>})}
+            {truncatedArr.map((elm,key)=>{return <li key={key}>{elm}</li>})}
                 
             </ul>
 
