@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setName } from "../../redux/userNameSlice";
+import { setInput } from "../../redux/translationInputSlice";
+import { setTranslations } from "../../redux/translationSlice";
+import { setName, setIndex } from "../../redux/userNameSlice";
 
 function LogoutButton(){
 
@@ -12,7 +14,11 @@ function LogoutButton(){
     const handleLogout = (e)=>{
         e.preventDefault();
         dispatch(setName(""))
+        dispatch(setIndex(0))
+        dispatch(setTranslations([]))
+        dispatch(setInput(""))
         localStorage.setItem('userName',JSON.stringify(""),[""])
+        localStorage.setItem('index',JSON.stringify(0),[0])
         navigate("/")
         
     }

@@ -5,7 +5,7 @@ export const userNameSlice = createSlice({
     name: "userName",
     initialState: {
         name: JSON.parse(localStorage.getItem("userName")),
-        index: 0,
+        index: JSON.parse(localStorage.getItem("index")),
     },
     reducers: {
         setName: (state, action) => {

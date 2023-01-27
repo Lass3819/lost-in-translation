@@ -46,6 +46,7 @@ export const usersSlice = createSlice({
         error: null
     },
     reducers:{
+        
     },
     extraReducers:{
         [getUsersAsync.pending]: (state, action) => {

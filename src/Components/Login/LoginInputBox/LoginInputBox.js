@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setName, setIndex } from "../../../redux/userNameSlice"
 import { useEffect, useState } from "react";
 import { getUsersAsync, addUserAsync } from "../../../redux/usersSlice";
+import { setTranslations } from "../../../redux/translationSlice";
 
 
 
@@ -33,14 +34,23 @@ const LoginInputBox = (props)=>{
         if (!loading){
             //foolproof way of iterating over the users array
             //even though we would get index directly by iterating over indices.               
-            for(let user of users){                           
+            
+            for(let user of users){
+                     
+                                 
                 if(user.username.name === userName){
+                    console.log(user.translations)
+                    dispatch(setTranslations(user.translations))
                     console.log("user already exists")
                     const i = users.indexOf(user)
+                    localStorage.setItem('index',JSON.stringify(i),[i])
+                    localStorage.setItem('translations',JSON.stringify(user.translations),[user.translations])
                     dispatch(setIndex(i))
                     return;
                 }
             }
+            dispatch(setIndex(users.length))
+            localStorage.setItem('index',JSON.stringify(users.length),[users.length])
             dispatch(addUserAsync({name: userName}))
         }
         

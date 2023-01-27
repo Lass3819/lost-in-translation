@@ -1,11 +1,11 @@
 const apiURL = 'https://noroff-api-production-f6a1.up.railway.app'
 const apiKey = 'ep1AJJI8eRB3hRT6VF5ETTXvk9WYddiSDPi0tyMqweudP0TH1e6liYkN2B9CjMLI'
 
-/* for (let i = 1; i<100; i++){
+for (let i = 1; i<100; i++){
   deleteUserWithId(i);
-} */
+}
 
-/*
+
 
 function deleteUserWithId(userId){
     fetch(`${apiURL}/translations/${userId}`, {
@@ -31,7 +31,7 @@ function deleteUserWithId(userId){
   .catch(error => {
   })
 }
-
+/*
 function fetchAllUsers(){
   const apiURL = 'https://noroff-api-production-f6a1.up.railway.app'
   fetch(`${apiURL}/translations`)
@@ -96,6 +96,3 @@ function addNewTranslations(newTranslations){
   .catch(error => {
   })
 }
-
-
-addNewTranslations("teqwerqwerqwerqwest")
